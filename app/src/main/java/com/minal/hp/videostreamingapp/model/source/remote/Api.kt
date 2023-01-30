@@ -9,6 +9,6 @@ interface Api {
 
     @GET("videos/")
     suspend fun getLatestVideos(
-        @Query("key") key: String
+        @Query(value = "key", encoded = true) key: String
     ): Response<VideoDataDTO>
 }

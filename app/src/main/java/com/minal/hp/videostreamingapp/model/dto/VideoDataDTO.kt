@@ -31,8 +31,6 @@ data class VideoDetailsDTO(
 
 @JsonClass(generateAdapter = true)
 data class VideoUrlDTO(
-    @Json(name = "large") val large: VideoUrlDataDTO,
-    @Json(name = "medium") val medium: VideoUrlDataDTO,
     @Json(name = "small") val small: VideoUrlDataDTO,
 )
 

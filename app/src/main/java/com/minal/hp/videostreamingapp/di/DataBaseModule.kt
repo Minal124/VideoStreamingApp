@@ -17,8 +17,8 @@ class DataBaseModule {
 
     @Provides
     @Singleton
-    fun provideVideoDao(sneakersRoomDatabase: VideosRoomDatabase): IVideoDao {
-        return sneakersRoomDatabase.videosDao()
+    fun provideVideoDao(videosRoomDatabase: VideosRoomDatabase): IVideoDao {
+        return videosRoomDatabase.videosDao()
     }
 
     @Provides

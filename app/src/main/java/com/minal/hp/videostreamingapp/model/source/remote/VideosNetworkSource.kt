@@ -5,7 +5,7 @@ import com.minal.hp.videostreamingapp.model.repository.BaseRepository
 import com.minal.hp.videostreamingapp.util.API_KEY
 import javax.inject.Inject
 
-class VideoNetworkSource @Inject constructor(private val api:Api) : IVideosNetworkSource,
+class VideoNetworkSource @Inject constructor(private val api: Api) : IVideosNetworkSource,
     BaseRepository() {
     override suspend fun getVideos(): List<VideoDetailsDTO>{
         return safeApiCall(
