@@ -22,7 +22,7 @@ data class VideosInfo(
     @ColumnInfo val userId: Int,
     @ColumnInfo val user: String,
     @ColumnInfo val userImageURL: String,
-    @ColumnInfo val isLiked: Boolean,
+    @ColumnInfo var isLiked: Boolean,
 )
 
 data class VideosDetailInfo(

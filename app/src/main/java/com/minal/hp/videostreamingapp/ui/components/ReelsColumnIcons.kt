@@ -2,7 +2,7 @@ package com.minal.hp.videostreamingapp.ui.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.icons.Icons
@@ -70,7 +70,7 @@ fun ReelsColumnIcons(
             contentDescription = null,
             modifier = Modifier
                 .size(30.dp)
-                .clip(CircleShape)
+                .clip(RoundedCornerShape(8.dp))
         )
     }
 }

@@ -10,7 +10,7 @@ class VideoNetworkSource @Inject constructor(private val api: Api) : IVideosNetw
     override suspend fun getVideos(): List<VideoDetailsDTO>{
         return safeApiCall(
             call = { api.getLatestVideos(API_KEY) },
-            error = "Error fetching news"
+            error = "Error fetching videos"
         )?.hits ?: emptyList()
     }
 }

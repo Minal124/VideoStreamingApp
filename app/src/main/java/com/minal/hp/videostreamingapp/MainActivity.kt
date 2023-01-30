@@ -20,9 +20,7 @@ class MainActivity : ComponentActivity() {
         homeScreenViewModel.refresh()
         setContent {
             VideoStreamingAppTheme {
-                Surface(
-
-                ) {
+                Surface {
                    ReelsScreen()
                 }
             }

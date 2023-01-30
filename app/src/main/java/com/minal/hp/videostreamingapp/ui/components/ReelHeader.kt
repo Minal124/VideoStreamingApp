@@ -29,7 +29,7 @@ fun ReelHeader(
 ) {
     Box(
         modifier = modifier
-            .padding(PaddingValues(8.dp, 16.dp)),
+            .padding(PaddingValues(16.dp, 12.dp)),
     ) {
         AnimatedVisibility(
             visible = isFirstItem,
