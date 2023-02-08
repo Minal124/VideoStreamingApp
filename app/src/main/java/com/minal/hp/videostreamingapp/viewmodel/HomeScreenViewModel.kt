@@ -59,6 +59,22 @@ class HomeScreenViewModel @Inject constructor(
             }
         }
     }
+
+    fun handleLikeEvent(id: Int) {
+        viewModelScope.launch {
+            val isLiked = !_videosState.value.videosList[id].isLiked
+            val likes =  _videosState.value.videosList[id].likes
+            val likeCount = if (isLiked) likes + 1 else likes - 1
+            videosRepository.updateLikesData(likeCount, isLiked, id)
+        }
+    }
+
+    fun handleDoubleTapLikeEvent(id: Int) {
+        viewModelScope.launch {
+            val likeCount = _videosState.value.videosList[id].likes+1
+            videosRepository.updateLikesData(likeCount, true, id)
+        }
+    }
 }
 
 data class VideoViewState (

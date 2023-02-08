@@ -71,6 +71,7 @@ fun ReelPlayer(
                                     exoPlayer.volume = 1f
                                     onMuted(false)
                                 }
+
                                 coroutineScope.launch {
                                     volumeIconVisibility = true
                                     delay(800)
@@ -85,7 +86,9 @@ fun ReelPlayer(
                                 exoPlayer.playWhenReady = true
                             }
                         },
-                        onLongPress = {}
+                        onLongPress = {
+
+                        }
                     )
                 },
             update = {

@@ -14,4 +14,7 @@ interface IVideoDao {
 
     @Query("SELECT * FROM Videos")
     fun getAllVideos(): Flow<List<VideosInfo>>
+
+    @Query("UPDATE Videos SET likes = :likes, isLiked = :isLiked WHERE id =:id")
+    suspend fun updateLikesData(likes: Int, isLiked: Boolean, id: Int)
 }

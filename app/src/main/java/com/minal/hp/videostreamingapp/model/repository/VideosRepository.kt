@@ -21,4 +21,8 @@ class VideoRepository @Inject constructor(
     override fun getVideos(): Flow<List<VideosInfo>> =
         localSource.getVideos()
 
+    override suspend fun updateLikesData(likes: Int, isLiked: Boolean, id: Int) {
+        localSource.updateLikesData(likes,isLiked,id)
+    }
+
 }

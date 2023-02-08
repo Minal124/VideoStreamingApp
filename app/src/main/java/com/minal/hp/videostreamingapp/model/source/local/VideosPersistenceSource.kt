@@ -16,4 +16,8 @@ class VideoPersistenceSource @Inject constructor(
     override fun getVideos(): Flow<List<VideosInfo>> =
         videosDao.getAllVideos()
 
+    override suspend fun updateLikesData(likes: Int, isLiked: Boolean, id: Int) {
+        videosDao.updateLikesData(likes,isLiked,id)
+    }
+
 }

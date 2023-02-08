@@ -19,16 +19,11 @@ import kotlin.math.abs
 fun ReelsScreen() {
 
     val viewModel = viewModel<HomeScreenViewModel>()
-    val videoState = viewModel.videosState.collectAsState()
+    val videoState by viewModel.videosState.collectAsState()
 
     val state = rememberPagerState()
     var isMuted by remember {
         mutableStateOf(false)
-    }
-    val onLiked = remember {
-        { index: Int, liked: Boolean ->
-            videoState.value.videosList[index].isLiked = liked
-        }
     }
 
     val isFirstItem by remember(state) {
@@ -39,7 +34,7 @@ fun ReelsScreen() {
 
     Box {
         VerticalPager(
-            count = videoState.value.videosList.size,
+            count = videoState.videosList.size,
             state = state,
             horizontalAlignment = Alignment.CenterHorizontally,
             itemSpacing = 10.dp
@@ -53,7 +48,7 @@ fun ReelsScreen() {
             }
 
             ReelPlayer(
-                reel = videoState.value.videosList[page],
+                reel = videoState.videosList[page],
                 shouldPlay = shouldPlay,
                 isMuted = isMuted,
                 isScrolling = state.isScrollInProgress,
@@ -61,12 +56,12 @@ fun ReelsScreen() {
                     isMuted = it
                 },
                 onDoubleTap = {
-                    onLiked(page, it)
+                    viewModel.handleDoubleTapLikeEvent(page)
                 }
             )
 
             ReelItem(
-                reel = videoState.value.videosList[page],
+                reel = videoState.videosList[page],
                 onIconClicked = { icon ->
                     when (icon) {
                         ReelIcon.CAMERA -> {
@@ -85,7 +80,7 @@ fun ReelsScreen() {
                             //:TODO
                         }
                         ReelIcon.LIKE -> {
-                            onLiked(page, !videoState.value.videosList[page].isLiked)
+                            viewModel.handleLikeEvent(page)
                         }
                     }
                 }
